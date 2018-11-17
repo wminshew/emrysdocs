@@ -1,4 +1,4 @@
-baseURL = "http://docs.emrys.io"
+baseURL = "https://docs.emrys.io"
 title = "emrys"
 
 theme = "book"
