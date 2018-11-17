@@ -33,6 +33,15 @@
       <article class="markdown">
         {{- .Content -}}
       </article>
+      <footer class="footer">
+        <a href="mailto:{{ .Site.Params.SupportEmail }}">
+          Email a bug or suggested improvement
+        </a>
+        <span>or </span>
+        <a target="_blank" href="https://www.twitter.com/{{ .Site.Params.EmrysTwitter }}">
+          tweet at us
+        </a>
+      </footer>
     </div>
 
     {{ $showToC := default (default true .Site.Params.BookShowToC) .Params.bookshowtoc }}

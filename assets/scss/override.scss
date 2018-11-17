@@ -1,0 +1,18 @@
+@import 'variables';
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+
+  &:visited {
+    color: $color-primary;
+  }
+}
+
+.footer {
+  border-top: solid;
+  border-width: 1px;
+  border-color: $gray-400;
+  margin-top: 20px;
+  padding-top: 20px;
+}

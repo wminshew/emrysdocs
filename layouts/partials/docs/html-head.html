@@ -7,5 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono:300,400,700" rel="stylesheet">
 <link rel="stylesheet" href="/normalize.min.css">
 
-{{ $styles := resources.Get "book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ $styles := resources.Get "book.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{- $styleOverride := resources.Get "scss/override.scss" | toCSS | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $styleOverride.RelPermalink }}">
