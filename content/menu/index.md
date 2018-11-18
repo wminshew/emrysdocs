@@ -3,10 +3,10 @@ headless: true
 ---
 
 - [**Introduction**](/)
-- [Installation](/docs/installation)
+  - [Installation](/docs/installation)
 - [**Users**](/docs/users)
-- [Tutorial](/docs/users/tutorial)
-- [Your first project](/docs/users/first-project)
+  - [Tutorial](/docs/users/tutorial)
+  - [Your first project](/docs/users/first-project)
 - [**Suppliers**](/docs/suppliers)
-- [Configuration](/docs/suppliers/config)
-- [Connecting to network](/docs/suppliers/connect)
+  - [Configuration](/docs/suppliers/config)
+  - [Connecting to network](/docs/suppliers/connect)
