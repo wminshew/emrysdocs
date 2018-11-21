@@ -1,6 +1,48 @@
-# Installation
+# Installing emrys
 
 ## Requirements
+**General**<br>
+Ubuntu 16.04. May work with other versions or OSes, but hasn't been tested. Experiment at your own risk.
+
+**User**<br>
+None
+
+**Supplier**<br>
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+    # Uninstall old versions
+    $ sudo apt-get remove docker docker-engine docker.io
+
+    $ sudo apt-get update
+    $ sudo apt-get install \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        software-properties-common
+        
+    $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    $ sudo apt-key fingerprint 0EBFCD88
+    $ sudo add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+
+    $ sudo apt-get update
+    $ sudo apt-get install docker-ce
+
+[Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker)
+
+    # Add the package repositories
+    $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+      sudo apt-key add -
+    $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+    $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+      sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    $ sudo apt-get update
+
+    # Install nvidia-docker2 and reload the Docker daemon configuration
+    $ sudo apt-get install -y nvidia-docker2
+    $ sudo systemctl restart docker.service
 
 ## Downloading
 
@@ -9,35 +51,27 @@
     curl -0 https://www.emrys.io/download/emrys_{{< version >}}.tar.gz
     tar -C /usr/local -xzf emrys_{{< version >}}.tar.gz
 
-Lorem **markdownum pignora pelle** est tota propiore conpellat pectoribus de
-pectora summo. Redit teque digerit hominumque toris verebor lumina non cervice
-subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc
-caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis
-lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.
+    # test the installation
+    emrys --help
 
-1. Exierant elisi ambit vivere dedere
-2. Duce pollice
-3. Eris modo
-4. Spargitque ferrea quos palude
+## Best Practices
 
-Rursus nulli murmur; hastile inridet ut ab gravi sententia! Nomine potitus
-silentia flumen, sustinet placuit petis in dilapsa erat sunt. [Atria
-tractus](http://agendo-dis.io/) malis.
+**User**<br>
+None
 
-1. Comas hunc haec pietate fetum procerum dixit
-2. Post torum vates letum Tiresia
-3. Flumen querellas
-4. Arcanaque montibus omnes
-5. Quidem et
+**Supplier**<br>
+To further isolate containers from your host machine, we suggest taking the following pre-cautions. While we believe the security settings enabled by default are sufficient, when it comes to security the more layers the better.
 
-## Debian / Ubuntu
+Enable [user re-mapping to docker](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process still wouldn't be privileged on your host machine.
 
-Coming soon
+    # add "userns-remap": "default" to /etc/docker/daemon.json, then restart dockerd
+    # should look like: 
+    $ sudo cat /etc/docker/daemon.json
+    {
+        "userns-remap": "default"
+    }
+    $ sudo systemctl restart docker.service
 
-## Pip
+Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor. In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.
 
-Coming soon
-
-## Homebrew
-
-Coming soon
+// TODO

@@ -4,9 +4,9 @@ headless: true
 
 - [**Introduction**](/)
   - [Installation](/docs/installation)
-- [**Users**](/docs/users)
+- **Users**
   - [Tutorial](/docs/users/tutorial)
-  - [Your first project](/docs/users/first-project)
-- [**Suppliers**](/docs/suppliers)
+  - [Examples](/docs/users/examples)
+- **Suppliers**
   - [Configuration](/docs/suppliers/config)
   - [Connecting to network](/docs/suppliers/connect)
