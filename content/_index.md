@@ -1,75 +1,33 @@
 ---
-title: Index
+title: Intro
 type: docs
 ---
 
-# Documentation
+# Introduction
 
-## Tempora nisi nunc
+Welcome to emrys!
 
-Lorem **markdownum** emicat gestu. Cannis sol pressit ducta. **Est** Idaei,
-tremens ausim se tutaeque, illi ulnis hausit, sed, lumina cutem. Quae avis
-sequens!
+## What is emrys?
+Emrys is a peer to peer marketplace for GPU compute.
+Today, that means companies and individuals with idle (or underutilized) GPUs can rent them out on our network to other 
+companies and individuals looking to utilize said GPUs.
 
-    var panel = ram_design;
-    if (backup + system) {
-        file.readPoint = network_native;
-        sidebar_engine_device(cell_tftp_raster,
-                dual_login_paper.adf_vci.application_reader_design(
-                graphicsNvramCdma, lpi_footer_snmp, integer_model));
-    }
-    public_keyboard_docking += error.controller_gibibyte_plug.ip(4,
-            asciiPetaflops, software(supercomputer_compatible_status + 4));
-    dynamic_disk.indexModeLaptop = bufferTftpReality;
-    var export_vlog_sequence = trinitron_flowchart + supercomputer_cluster_rj(
-            -1, toolbar_powerpoint_query, -2 / multiprocessing_impression);
+## Why would I use emrys?
+As a user, you either use cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
 
-## Locis suis novi cum suoque decidit eadem
+As a supplier, you either have presently-idle GPUs or are looking to earn (significantly) more money than you can from mining altcoins.
 
-Idmoniae ripis, at aves, ali missa adest, ut *et autem*, et ab? Venit spes
-versus finis sermonibus patefecit murum nec est sine oculis. *Ille* inmota
-macies domoque caelestia cadit tantummodo scelus procul, corde!
+## How do I use emrys?
+Well, that depends whether you wish to rent GPUs *from* the network, or contribute your GPUs *to* the network.
+You can find more details about each use case by following links on the left.
 
-1. Dolentem capi parte rostro alvum habentem pudor
-2. Fulgentia sanguine paret
-3. E punior consurgit lentus
-4. Vox hasta eras micantes
+While exploring, you'll notice every page has a feedback link at the bottom.
+We ask that you use it!
+No piece of software or writing is perfect, and we need all the help we can get to make it better.
+We intend to open source the user and supplier clients in the coming months, but for now this site & [email](mailto:support@emrys.io) will have to do.
+We thank you in advance for your thoughtful feedback on our service & documentation.
 
-## Suis quot
-
-Ea *furtique* risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio *quam* velatus posset ait quod
-nunc!
-
-## Astris ipse furtiva vota collumque et habe
-
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora *adicit cursu*, ad facies:
-fragosis suae dextra geruntur functus vulgata.
-
-## Facibus pharetrae indetonsusque indulsit sic incurrite foliis
-
-Nefandam et prisci palmas! Blandita cutis flectitur montis macies, te *nati*
-Latiis; turbaque inferias. Virginis tibi peracta avidusque facies caper nec, e
-at ademptae, mira.
-
-    direct *= font(inputScareware(sliHome), crossplatform.byte(
-            ppl_encryption.excel_e_rte(integratedModelModifier), timeVirtual,
-            floating_speakers.media_printer(us, yahoo, primaryPhp)));
-    friendly_metal_flatbed(cd, isoPrimaryStorage(reader), dmaMirrored);
-    if (parse_flash_cron.metalGif(1, adServiceDevice, utility)) {
-        adf -= operation_cdma_samba;
-        imapGif.switch += torrent;
-    } else {
-        pmu.disk_captcha = digital_ppp_pci + recursionTransistor(5, dram);
-        ajax_service += grayscalePythonLock;
-        google_scroll_capacity = ftp + engine_dslam_sidebar / tape - 1;
-    }
-    drive_rw = zipTftp;
-    var suffix = software_router_extension.dimm_ddr(-5,
-            kernel_digital_minisite);
-
-Vocavit toto; alas **mitis** maestus in liquidarum ab legi finitimosque dominam
-tibi subitus; Orionis vertitur nota. Currere alti etiam seroque cernitis
-innumeris miraturus amplectique collo sustinet quemque! Litora ante turba?
+## Emrys is a funny name. What's it mean?
+Emrys is [Merlin](https://en.wikipedia.org/wiki/Merlin)'s first name in Welsh.
+Following Arthur C. Clarke's famous quote ("Any sufficiently advanced technology is indistinguishable from magic"), we believe programmers are modern wizards.
+But mostly we just like how it sounds.
