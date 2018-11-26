@@ -28,6 +28,6 @@ We intend to open source the user and supplier clients in the coming months, but
 We thank you in advance for your thoughtful feedback on our service & documentation.
 
 ## Emrys is a funny name. What's it mean?
-Emrys is [Merlin](https://en.wikipedia.org/wiki/Merlin)'s first name in Welsh.
-Following Arthur C. Clarke's famous quote ("Any sufficiently advanced technology is indistinguishable from magic"), we believe programmers are modern wizards.
+Emrys is <a target="_blank" href="https://en.wikipedia.org/wiki/Merlin">Merlin</a>'s first name in Welsh.
+Following Arthur C. Clarke's famous quote ("Any sufficiently advanced technology is indistinguishable from magic"), we believe programming is modern wizardry.
 But mostly we just like how it sounds.
