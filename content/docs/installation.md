@@ -78,7 +78,7 @@ relatively cool reduces wear and tear.
 **Security**<br>
 To further isolate containers from your host machine, we suggest taking the following pre-cautions. While we believe the security settings enabled by default are sufficient, when it comes to security the more layers the better.
 
-Enable [user re-mapping to docker](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process still wouldn't be privileged on your host machine.
+**Docker user mapping**. Enable [user re-mapping to docker](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process still wouldn't be privileged on your host machine.
 
 	# add "userns-remap": "default" to /etc/docker/daemon.json, then restart dockerd
 	# should look like: 
@@ -88,6 +88,6 @@ Enable [user re-mapping to docker](https://docs.docker.com/engine/security/usern
 	}
 	$ sudo systemctl restart docker.service
 
-Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor. In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.
+**LXD**. Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor. In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.
 
-// TODO
+// TODO: add code
