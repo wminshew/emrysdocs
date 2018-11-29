@@ -6,12 +6,13 @@ Example .emrys.yaml for executing emrys mine:
 
     miner:
       # which devices to rent out on the network (mapped to nvidia-smi);
-      # if left empty, emrys will run on all discoverable devices
+      # defaults to all discoverable devices
       devices: 0 1
 
       # minimum $/hr rate each device will accept for jobs;
       # may include either one number (used for all cards),
       # or n numbers where n is the number of running devices
+      #required
       bid-rates: 0.2 0.3
 
       # NOTE: if included, MUST use the '$DEVICE' flag, as shown below

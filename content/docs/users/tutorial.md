@@ -31,6 +31,15 @@ When convenient, flags will override configuration settings.
     # use a different python script for execution
     sudo emrys run --main test/numpy/other-main.py
 
+## How does it work?
+
+Emrys run does ~4 things:
+
+1. uploads a python script and requirements to the server with which a docker image is built
+2. syncs the data set, if it exists locally, to the server
+3. auctions the job's execution to supplier's meeting the user's hardware requirements
+4. streams output logs back to the user & downloads anything the python script saved in ./output/
+
 ## Limitations
 
 Please note there is currently a maximum data set size of 10gb per project. Please email [support](mailto:support@emrys.io) to request a larger limit.
