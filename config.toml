@@ -9,7 +9,8 @@ disablePathToLower = true
 [params]
   AuthorName = "William Minshew"
   GitHubUser = "wminshew"
-  SupportEmail = "support@emrys.io"
+  EmrysURL = "https://www.emrys.io"
+  EmrysSupport = "support@emrys.io"
   EmrysTwitter = "emrysio"
   EmrysVersion = "u0.1.0_m0.1.0"
 
