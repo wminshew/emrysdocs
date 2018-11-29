@@ -48,8 +48,9 @@ None
 
 ### Curl
 
-    curl -0 https://www.emrys.io/download/emrys_{{< version >}}.tar.gz
-    tar -C /usr/local -xzf emrys_{{< version >}}.tar.gz
+    curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz
+    # system-wide installation
+    sudo tar -C /usr/local/bin -xzf emrys_{{< version >}}.tar.gz
 
     # test the installation
     emrys --help
