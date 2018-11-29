@@ -30,3 +30,7 @@ When convenient, flags will override configuration settings.
 
     # use a different python script for execution
     sudo emrys run --main test/numpy/other-main.py
+
+## Limitations
+
+Please note there is currently a maximum data set size of 10gb per project. Please email [support](mailto:support@emrys.io) to request a larger limit.
