@@ -57,15 +57,15 @@ None
 
 ## Best Practices
 
-**User**<br>
+### User
 None
 
-**Supplier**<br>
-### Cooling
+### Supplier
+**Cooling**<br>
 GPUs will heat up quite a bit when running at full utilization. By following the below instructions,
 emrys will be able to ramp up your fan appropriately when your card runs hot. Keeping your cards
 relatively cool reduces wear and tear.
-    # allows user to adjust gpu fanspeed; may require sudo
+    # allows user to adjust gpu fan speed; may require sudo
 		# learn more here: https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Enabling_overclocking
     $ nvidia-xconfig -a --enable-all-gpus
     $ nvidia-xconfig -a --cool-bits=24
@@ -74,7 +74,7 @@ relatively cool reduces wear and tear.
 		$ nvidia-settings -a GPUFanControlState=1
 		$ nvidia-settings -a GPUTargetFanSpeed=75
 
-### Security
+**Security**<br>
 To further isolate containers from your host machine, we suggest taking the following pre-cautions. While we believe the security settings enabled by default are sufficient, when it comes to security the more layers the better.
 
 Enable [user re-mapping to docker](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process still wouldn't be privileged on your host machine.
