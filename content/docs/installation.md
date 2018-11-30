@@ -55,6 +55,13 @@ None
     # test the installation
     emrys --help
 
+    # remove the targz
+    rm emrys_{{< version >}}.tar.gz
+
+## Updating
+
+		sudo emrys update
+
 ## Best Practices
 
 ### User
