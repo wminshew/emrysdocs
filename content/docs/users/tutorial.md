@@ -11,14 +11,39 @@ For convenience, users should store their settings in a configuation file. Emrys
 Example .emrys.yaml for executing emrys run:
 
     user:
-      # required
+      ## required
+			# name of project
       project: "numpy-test"
+
+			# path to pip requirements.txt
       requirements: "test/numpy/requirements.txt"
+
+			# path to main python script for execution
       main: "test/numpy/main.py"
+
+			# path to output folder
       output: "test/numpy/output"
 
-      # optional
+
+      ## optional
+			# path to data directory
       data: "test/numpy/data"
+
+			# Minimum acceptable gpu, ranked here: TODO
+			# default: k80
+			gpu: gtx 1080 ti
+
+			# Minimum acceptable amount of supplier RAM
+			# default: 8gb
+			ram: 4gb
+
+			# Minimum acceptable amount of supplier disk space
+			# default: 25gb
+			disk: 10gb
+
+			# Minimum acceptable supplier gpu pci-e lanes
+			# default: 8x
+			pcie: 16x
 
 ## Running jobs
 
