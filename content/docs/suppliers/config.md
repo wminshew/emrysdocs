@@ -9,7 +9,7 @@ Example .emrys.yaml for executing emrys mine:
       # minimum $/hr rate each device will accept for jobs;
       # may include either one number (used for all cards),
       # or n numbers where n is the number of running devices
-      bid-rates: 0.2 0.3
+      bid-rates: 0.2 0.21
 
       ## optional
       # which devices to rent out on the network (mapped to nvidia-smi);
