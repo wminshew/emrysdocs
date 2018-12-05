@@ -29,7 +29,7 @@ Example .emrys.yaml for executing emrys run:
 			# path to data directory
       data: "test/numpy/data"
 
-			# Minimum acceptable gpu, ranked here: TODO
+			# Minimum acceptable gpu, ranked here: https://github.com/wminshew/emrys/blob/master/pkg/job/ValidGPU.go
 			# default: k80
 			gpu: gtx 1080 ti
 
