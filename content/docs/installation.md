@@ -8,93 +8,120 @@ Ubuntu 16.04. May work with other versions or OSes, but hasn't been tested. Expe
 None
 
 **Supplier**<br>
-[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) with [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/)
 
     # Uninstall old versions
-    $ sudo apt-get remove docker docker-engine docker.io
+    $ sudo apt remove docker docker-engine docker.io
 
-    $ sudo apt-get update
-    $ sudo apt-get install \
+    $ sudo apt update
+    $ sudo apt install \
        apt-transport-https \
        ca-certificates \
        curl \
        software-properties-common
         
-    $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+       sudo apt-key add -
     $ sudo apt-key fingerprint 0EBFCD88
     $ sudo add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) \
        stable"
 
-    $ sudo apt-get update
-    $ sudo apt-get install docker-ce
+    $ sudo apt update
+    $ sudo apt install -y docker-ce
 
+    # add "userns-remap": "default" to /etc/docker/daemon.json
+    $ echo "{ \"userns-remap\": \"default\" }" | sudo tee -a /etc/docker/daemon.json
+
+    # /etc/docker/daemon/json should look like: 
+    $ sudo cat /etc/docker/daemon.json
+    {
+      "userns-remap": "default"
+    }
+
+    # restart dockerd for the changes to take effect
+    $ sudo systemctl restart docker.service
+
+All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process is still unprivileged on your host machine.
+
+<br>
 [Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker)
 
     # Add the package repositories
     $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-      sudo apt-key add -
+       sudo apt-key add -
     $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
     $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-      sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-    $ sudo apt-get update
+       sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    $ sudo apt update
 
     # Install nvidia-docker2 and reload the Docker daemon configuration
-    $ sudo apt-get install -y nvidia-docker2
+    $ sudo apt install -y nvidia-docker2
     $ sudo systemctl restart docker.service
 
-## Downloading
+<br>
+[GPU cooling](https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Set_fan_speed_at_login)
 
-### Curl
+    # allows user to adjust gpu fan speed
+    $ sudo nvidia-xconfig -a --enable-all-gpus
+    $ sudo nvidia-xconfig -a --cool-bits=24
 
-    curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz
-    # system-wide installation
-    sudo tar -C /usr/local/bin -xzf emrys_{{< version >}}.tar.gz
+    # must reboot
 
-    # test the installation
-    emrys --help
+    # test
+    $ nvidia-settings -a GPUFanControlState=1
+    $ nvidia-settings -a GPUTargetFanSpeed=25
 
-    # remove the targz
-    rm emrys_{{< version >}}.tar.gz
-
-## Updating
-
-		sudo emrys update
-
-## Best Practices
-
-### User
-None
-
-### Supplier
-**Cooling**<br>
-GPUs will heat up quite a bit when running at full utilization. By following the below instructions,
-emrys will be able to ramp up your fan appropriately when your card runs hot. Keeping your cards
+GPUs heat up quickly when running at high utilization. Settings your GPUs fan control state to manual
+allows emrys to ramp up your fan appropriately during & between jobs. Keeping your cards
 relatively cool reduces wear and tear.
-
-	# allows user to adjust gpu fan speed; may require sudo
-	# learn more here: https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Enabling_overclocking
-	$ nvidia-xconfig -a --enable-all-gpus
-	$ nvidia-xconfig -a --cool-bits=24
-
-	# may have to restart for update to take effect; can test with
-	$ nvidia-settings -a GPUFanControlState=1
-	$ nvidia-settings -a GPUTargetFanSpeed=75
-
-**Security**<br>
-To further isolate containers from your host machine, we suggest taking the following pre-cautions. While we believe the security settings enabled by default are sufficient, when it comes to security the more layers the better.
-
-**Docker user mapping**. Enable [user re-mapping to docker](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process still wouldn't be privileged on your host machine.
-
-	# add "userns-remap": "default" to /etc/docker/daemon.json, then restart dockerd
-	# should look like: 
-	$ sudo cat /etc/docker/daemon.json
-	{
-		"userns-remap": "default"
-	}
-	$ sudo systemctl restart docker.service
-
-**LXD**. Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor. In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.
-
-// TODO: add code
+<!-- **LXD**. Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor.  -->
+<!-- In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.  -->
+<!-- Learn more [here](https://linuxcontainers.org/lxd/getting-started-cli/) and [here](https://help.ubuntu.com/lts/serverguide/lxd.html). -->
+<!--  -->
+<!--     $ sudo apt install -t xenial-backports lxd lxd-client -->
+<!--     $ lxc launch ubuntu:16.04 emrys -c security.nesting=true -->
+<!--     $ lxc config device add emrys gpu gpu -->
+<!--     $ lxc exec emrys -- /bin/bash -->
+<!--  -->
+<!--     root@emrys:~# apt update -->
+<!--  -->
+<!--     # NOTE: must install same nvidia drivers as host -->
+<!--     root@emrys:~# wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb -->
+<!--     root@emrys:~# dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb -->
+<!--     root@emrys:~# apt update -->
+<!--     root@emrys:~# apt install -y cuda --no-install-recommends -->
+<!--  -->
+<!--     # test cuda -->
+<!--     root@emrys:~# nvidia-smi -->
+<!--  -->
+<!--     # install docker -->
+<!--     root@emrys:~# apt update -->
+<!--     root@emrys:~# apt install -y docker.io -->
+<!--  -->
+<!--     # test docker -->
+<!--     root@emrys:~# docker info -->
+<!--  -->
+<!--     # install emrys     -->
+<!--     root@emrys:~# curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz -->
+<!--     # system-wide installation -->
+<!--     root@emrys:~# tar -C /usr/local/bin -xzf emrys_{{< version >}}.tar.gz -->
+<!--  -->
+<!--     # test emrys -->
+<!--     root@emrys:~# emrys --help -->
+<!-- ## Downloading -->
+<!--  -->
+<!-- ### Curl -->
+<!--  -->
+<!--     $ curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz | \ -->
+<!--        sudo tar -C /usr/local/bin -xzf - -->
+<!--  -->
+<!--     # test the installation -->
+<!--     emrys --help -->
+<!--  -->
+<!--     # enable docker user re-mapping -->
+<!--  -->
+<!-- ## Updating -->
+<!--  -->
+<!--     sudo emrys update -->
