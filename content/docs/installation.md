@@ -8,8 +8,7 @@ Ubuntu 16.04. May work with other versions or OSes, but hasn't been tested. Expe
 None
 
 **Supplier**<br>
-[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) with [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/)
-
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     # Uninstall old versions
     $ sudo apt remove docker docker-engine docker.io
 
@@ -31,20 +30,6 @@ None
     $ sudo apt update
     $ sudo apt install -y docker-ce
 
-    # add "userns-remap": "default" to /etc/docker/daemon.json
-    $ echo "{ \"userns-remap\": \"default\" }" | sudo tee -a /etc/docker/daemon.json
-
-    # /etc/docker/daemon/json should look like: 
-    $ sudo cat /etc/docker/daemon.json
-    {
-      "userns-remap": "default"
-    }
-
-    # restart dockerd for the changes to take effect
-    $ sudo systemctl restart docker.service
-
-All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process is still unprivileged on your host machine.
-
 <br>
 [Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker)
 
@@ -59,6 +44,26 @@ All containers are executed as unprivileged users with all linux capabilities dr
     # Install nvidia-docker2 and reload the Docker daemon configuration
     $ sudo apt install -y nvidia-docker2
     $ sudo systemctl restart docker.service
+
+<br>
+Add [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process is still unprivileged on your host machine.
+
+    # manually add "userns-remap": "default" to /etc/docker/daemon.json
+    # After, it should look like: 
+    $ sudo cat /etc/docker/daemon.json
+    {
+      "userns-remap": "default",
+      "runtimes": {
+        "nvidia": {
+          "path": "nvidia-container-runtime",
+          "runtimeArgs": []
+        }
+      }
+    }
+
+    # restart dockerd for the changes to take effect
+    $ sudo systemctl restart docker.service
+
 
 <br>
 [GPU cooling](https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Set_fan_speed_at_login)
