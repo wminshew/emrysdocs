@@ -81,6 +81,7 @@ Add [user re-mapping for security](https://docs.docker.com/engine/security/usern
 GPUs heat up quickly when running at high utilization. Settings your GPUs fan control state to manual
 allows emrys to ramp up your fan appropriately during & between jobs. Keeping your cards
 relatively cool reduces wear and tear.
+
 <!-- **LXD**. Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor.  -->
 <!-- In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.  -->
 <!-- Learn more [here](https://linuxcontainers.org/lxd/getting-started-cli/) and [here](https://help.ubuntu.com/lts/serverguide/lxd.html). -->
@@ -117,16 +118,17 @@ relatively cool reduces wear and tear.
 <!--     root@emrys:~# emrys --help -->
 <!-- ## Downloading -->
 <!--  -->
-<!-- ### Curl -->
-<!--  -->
-<!--     $ curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz | \ -->
-<!--        sudo tar -C /usr/local/bin -xzf - -->
-<!--  -->
-<!--     # test the installation -->
-<!--     emrys --help -->
-<!--  -->
-<!--     # enable docker user re-mapping -->
-<!--  -->
-<!-- ## Updating -->
-<!--  -->
-<!--     sudo emrys update -->
+
+## Downloading & installing emrys
+
+    $ curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz | \
+       sudo tar -C /usr/local/bin -xzf -
+
+    # test the installation
+    $ emrys --help
+
+    # enable docker user re-mapping
+
+## Updating emrys
+
+    $ sudo emrys update
