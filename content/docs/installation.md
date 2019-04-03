@@ -129,6 +129,9 @@ relatively cool reduces wear and tear.
 
     # enable docker user re-mapping
 
+## Sending & receiving payments
+Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account](https://www.emrys.io/account) page to securely provide card and/or bank account details required for using & supplying the network respectively.
+
 ## Updating emrys
 
     $ sudo emrys update
