@@ -55,6 +55,17 @@ When convenient, flags will override configuration settings.
     # use a different python script for execution
     sudo emrys run --main test/numpy/other-main.py
 
+## Running jupyter notebooks
+
+Once a configuration file is in place, the user can access a remote jupyter kernal with the following command:
+
+    sudo emrys notebook
+
+When convenient, flags will override configuration settings.
+
+    # load a different .ipynb notebook
+    sudo emrys run --main test/numpy/other-notebook.ipynb
+
 ## How does it work?
 
 Emrys run does ~4 things:
