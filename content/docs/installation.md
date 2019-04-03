@@ -121,13 +121,13 @@ relatively cool reduces wear and tear.
 
 ## Downloading & installing emrys
 
-    $ curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz | \
+    $ curl -O https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}.tar.gz | \
        sudo tar -C /usr/local/bin -xzf -
 
     # test the installation
     $ emrys --help
 
-    # enable docker user re-mapping
+  # enable docker user re-mapping
 
 ## Sending & receiving payments
 Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account](https://www.emrys.io/account) page to securely provide card and/or bank account details required for using & supplying the network respectively.

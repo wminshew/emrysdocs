@@ -1,10 +1,11 @@
 # Example projects
 
-Please note running these projects is not free (though the expected cost is ~< $0.02, subject to network demand)
+Please note running these projects is not free (though the expected cost is ~< $0.02, subject to network demand). 
+Even if you have credits, you must add a valid card to your [account](https://www.emrys.io/account) (powered by [Stripe](https://stripe.com)).
 
 ## Basic
 
-	$ curl -O https://www.emrys.io/download/basic-example.tar.gz
+	$ curl -O https://storage.googleapis.com/emrys-public/tutorials/basic-example.tar.gz
 	$ tar -xzf basic-example.tar.gz
 	$ cd basic-example
 
@@ -38,22 +39,18 @@ Please note running these projects is not free (though the expected cost is ~< $
 
 The advanced example is not any more complex to complete, but includes a data set and a script to remotely train a model and return the final weights.
 
-	$ curl -O https://www.emrys.io/download/advanced-example.tar.gz
+	$ curl -O https://storage.googleapis.com/emrys-public/tutorials/advanced-example.tar.gz
 	$ tar -xzf advanced-example.tar.gz
 	$ cd advanced-example
 	
-	# skip if you don't want to download the data set locally & sync via emrys
-	$ curl -o "data.tar.gz" https://storage.googleapis.com/emrys-public/tutorials/advanced-example/data.tar.gz
-	$ tar -xzf data.tar.gz
-
 	# if not already logged in
 	$ sudo emrys login
 	Email: example@domain.com
 	Password:
 
-	# if you didn't download the data set locally, instead run:
-	# sudo emrys run --main main-gpu-dl.py --data ""
 	$ sudo emrys run
+	# you can also download the data set remotely (vs syncing from local) by running:
+	# sudo emrys run --main main-gpu-dl.py --data ""
 	2018/12/06 17:48:42 Sending job requirements...
 	2018/12/06 17:48:42 Beginning job ce87fc77-65a8-47bb-a153-91b300eadc2f...
 	2018/12/06 17:48:42 Data: syncing...
