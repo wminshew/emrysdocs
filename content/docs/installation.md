@@ -82,43 +82,6 @@ GPUs heat up quickly when running at high utilization. Settings your GPUs fan co
 allows emrys to ramp up your fan appropriately during & between jobs. Keeping your cards
 relatively cool reduces wear and tear.
 
-<!-- **LXD**. Run emrys inside [LXD](https://help.ubuntu.com/lts/serverguide/lxd.html), a light-weight container hypervisor.  -->
-<!-- In the unlikely event a process were able to escape from the container, LXD would add an extra buffer to break through before reaching the host machine.  -->
-<!-- Learn more [here](https://linuxcontainers.org/lxd/getting-started-cli/) and [here](https://help.ubuntu.com/lts/serverguide/lxd.html). -->
-<!--  -->
-<!--     $ sudo apt install -t xenial-backports lxd lxd-client -->
-<!--     $ lxc launch ubuntu:16.04 emrys -c security.nesting=true -->
-<!--     $ lxc config device add emrys gpu gpu -->
-<!--     $ lxc exec emrys -- /bin/bash -->
-<!--  -->
-<!--     root@emrys:~# apt update -->
-<!--  -->
-<!--     # NOTE: must install same nvidia drivers as host -->
-<!--     root@emrys:~# wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb -->
-<!--     root@emrys:~# dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb -->
-<!--     root@emrys:~# apt update -->
-<!--     root@emrys:~# apt install -y cuda --no-install-recommends -->
-<!--  -->
-<!--     # test cuda -->
-<!--     root@emrys:~# nvidia-smi -->
-<!--  -->
-<!--     # install docker -->
-<!--     root@emrys:~# apt update -->
-<!--     root@emrys:~# apt install -y docker.io -->
-<!--  -->
-<!--     # test docker -->
-<!--     root@emrys:~# docker info -->
-<!--  -->
-<!--     # install emrys     -->
-<!--     root@emrys:~# curl -O https://www.emrys.io/download/emrys_{{< version >}}.tar.gz -->
-<!--     # system-wide installation -->
-<!--     root@emrys:~# tar -C /usr/local/bin -xzf emrys_{{< version >}}.tar.gz -->
-<!--  -->
-<!--     # test emrys -->
-<!--     root@emrys:~# emrys --help -->
-<!-- ## Downloading -->
-<!--  -->
-
 ## Downloading & installing emrys
 
     $ curl -O https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}.tar.gz | \
