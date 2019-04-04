@@ -84,7 +84,7 @@ relatively cool reduces wear and tear.
 
 ## Downloading & installing emrys
 
-    $ curl -O https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}.tar.gz | \
+    $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}.tar.gz | \
        sudo tar -C /usr/local/bin -xzf -
 
     # test the installation
