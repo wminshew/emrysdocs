@@ -18,7 +18,7 @@ Example .emrys.yaml for executing emrys mine:
 
       # how much RAM to allocate per device per job
       # default: 8gb
-      ram: 4bg
+      ram: 4gb
 
       # how much disk space to allocate per device per job
       # default: 25gb
