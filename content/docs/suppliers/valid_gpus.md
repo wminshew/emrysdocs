@@ -1,0 +1,18 @@
+# Valid GPUs for emrys suppliers
+
+Any card listed below should be accepted by the emrys network. At this time, we only support nvidia cards.
+If you find an error or think a card should be added, please [email](mailto:support@emrys.io) us!
+
+    teslaV100
+    teslaP100
+    teslaK80
+    nvidiaTitanV
+    nvidiaTitanXp
+    nvidiaTitanX
+    rtx2080ti
+    rtx2080
+    rtx2070
+    gtx1080ti
+    gtx1080
+    gtx1070ti
+    gtx1070

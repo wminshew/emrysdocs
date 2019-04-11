@@ -10,3 +10,4 @@ headless: true
 - **Suppliers**
   - [Configuration](/docs/suppliers/config)
   - [Connecting to network](/docs/suppliers/connect)
+  - [Valid GPUs](/docs/suppliers/valid_gpus)
