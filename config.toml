@@ -12,7 +12,7 @@ disablePathToLower = true
   EmrysURL = "https://www.emrys.io"
   EmrysSupport = "support@emrys.io"
   EmrysTwitter = "emrysio"
-  EmrysVersion = "u0.5.0_m0.5.0"
+  EmrysVersion = "u0.6.0_m0.6.0"
 
   # (Optional, default true) Show or hide table of contents globally
   # You can also specify this parameter per page in front matter
