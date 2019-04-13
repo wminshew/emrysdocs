@@ -4,6 +4,7 @@ headless: true
 
 - [**Introduction**](/)
   - [Installation](/docs/installation)
+  - [Feedback](/docs/feedback)
 - **Users**
   - [Tutorial](/docs/users/tutorial)
   - [Examples](/docs/users/examples)
