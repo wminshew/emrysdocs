@@ -5,7 +5,7 @@
 Ubuntu 16.04. May work with other versions or OSes, but hasn't been tested. Experiment at your own risk.
 
 **User**<br>
-None
+There are no software dependencies for users, simply install the [CLI](/docs/installation#downloading-installing-emrys)
 
 **Supplier**<br>
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
