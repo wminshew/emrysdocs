@@ -97,4 +97,5 @@ Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account]
 
 ## Updating emrys
 
+    # sudo may be required, depending on the ownership & permissions of /usr/local/bin
     $ emrys update
