@@ -1,8 +1,9 @@
 # Example projects
 
-Please note running these projects is not free (though the expected cost is ~< $0.02, subject to network demand). 
+Please note running these projects is not free (though the expected cost is $0.01-$0.02, subject to network demand). 
 Even if you have credits, you must add a valid card to your [account](https://www.emrys.io/account) (powered by [Stripe](https://stripe.com)).
 
+The below examples use the config file
 ## Basic
 
 	$ curl -O https://storage.googleapis.com/emrys-public/tutorials/basic-example.tar.gz
@@ -10,11 +11,11 @@ Even if you have credits, you must add a valid card to your [account](https://ww
 	$ cd basic-example
 
 	# if not already logged in
-	$ sudo emrys login
+	$ emrys login
 	Email: example@domain.com
 	Password:
 
-	$ sudo emrys run
+	$ emrys run
 	2018/12/06 12:42:23 Sending job requirements...
 	2018/12/06 12:42:23 Beginning job 6898781b-5c9d-40a5-b070-722fdca88138...
 	2018/12/06 12:42:23 Data: syncing...
@@ -44,13 +45,13 @@ The advanced example is not any more complex to complete, but includes a data se
 	$ cd advanced-example
 	
 	# if not already logged in
-	$ sudo emrys login
+	$ emrys login
 	Email: example@domain.com
 	Password:
 
-	$ sudo emrys run
+	$ emrys run
 	# you can also download the data set remotely (vs syncing from local) by running:
-	# sudo emrys run --main main-gpu-dl.py --data ""
+	# emrys run --main main-gpu-dl.py --data ""
 	2018/12/06 17:48:42 Sending job requirements...
 	2018/12/06 17:48:42 Beginning job ce87fc77-65a8-47bb-a153-91b300eadc2f...
 	2018/12/06 17:48:42 Data: syncing...

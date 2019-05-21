@@ -2,7 +2,7 @@
 
 ## Login
 
-    sudo emrys login
+    emrys login
 
 ## Configuration
 
@@ -48,23 +48,23 @@ Example .emrys.yaml for executing emrys run:
 
 Once a configuration file is in place, the user can dispatch jobs with the following command:
 
-    sudo emrys run
+    emrys run
 
 When convenient, flags will override configuration settings.
 
     # use a different python script for execution
-    sudo emrys run --main test/numpy/other-main.py
+    emrys run --main test/numpy/other-main.py
 
 ## Running jupyter notebooks
 
 Once a configuration file is in place, the user can access a remote jupyter kernal with the following command:
 
-    sudo emrys notebook
+    emrys notebook
 
 When convenient, flags will override configuration settings.
 
     # load a different .ipynb notebook
-    sudo emrys run --main test/numpy/other-notebook.ipynb
+    emrys run --main test/numpy/other-notebook.ipynb
 
 ## How does it work?
 
