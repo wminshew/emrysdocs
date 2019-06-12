@@ -1,13 +1,12 @@
 # Installing emrys
 
 ## Requirements
-**General**<br>
-Ubuntu 16.04. May work with other versions or OSes, but hasn't been tested. Experiment at your own risk.
-
 **User**<br>
-There are no software dependencies for users, simply install the [CLI](/docs/installation#downloading-installing-emrys).
+User subcommands have been tested with ubuntu 16.04 and macOS. There are no additional software dependencies for users, simply install the [CLI](/docs/installation#downloading-installing-emrys).
 
 **Supplier**<br>
+Supplier / miner subcommands have only been tested with ubuntu 16.04.
+
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     # Uninstall old versions
     $ sudo apt remove docker docker-engine docker.io
@@ -84,13 +83,23 @@ relatively cool reduces wear and tear.
 
 ## Downloading & installing emrys
 
-    $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}.tar.gz | \
+The following scripts require root privileges to install emrys into /usr/local/bin. If you prefer to avoid 
+using sudo, simply install the executable into a different folder that doesn't require root (say ~/bin - 
+but don't forget to add it to $PATH!)
+
+### Linux
+
+    $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}_linux.tar.gz | \
        sudo tar -C /usr/local/bin -xzf -
 
-    # test the installation
-    $ emrys --help
+### MacOS
 
-  # enable docker user re-mapping
+    $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}_darwin.tar.gz | \
+       sudo tar -C /usr/local/bin -xzf -
+
+### Test the installation
+
+    $ emrys --help
 
 ## Sending & receiving payments
 Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account](https://www.emrys.io/account) page to securely provide card and/or bank account details required for using & supplying the network respectively.
