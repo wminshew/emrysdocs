@@ -106,7 +106,6 @@ Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account]
 
 ## Updating emrys
 
-    # sudo may be required, depending on where you installed the executable
-    # in the default case, /usr/local/bin usually requires it, 
-    # but YMMV depending on your /usr/local's permissions & ownership
+    # sudo may be required, depending on the permissions & ownership 
+    # of where you installed the executable
     $ emrys update
