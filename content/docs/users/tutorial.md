@@ -4,49 +4,9 @@
 
     emrys login
 
-## Configuration
-
-For convenience, users should store their settings in a configuation file. Emrys will look for .emrys.yaml in the prioritized order: current directory, $HOME/.config/emrys, and $HOME/. Toml and json formats are also accepted.
-
-Example .emrys.yaml for executing emrys run:
-
-    user:
-      ## required
-      # name of project
-      project: "numpy-test"
-
-      # path to pip requirements.txt
-      requirements: "test/numpy/requirements.txt"
-
-      # path to main python script for execution
-      main: "test/numpy/main.py"
-
-      # path to output folder
-      output: "test/numpy/output"
-
-      ## optional
-      # path to data directory
-      data: "test/numpy/data"
-
-      # Minimum acceptable gpu, ranked here: https://github.com/wminshew/emrys/blob/master/pkg/job/ValidGPU.go
-      # default: k80
-      gpu: gtx 1080 ti
-
-      # Minimum acceptable amount of supplier RAM
-      # default: 8gb
-      ram: 4gb
-
-      # Minimum acceptable amount of supplier disk space
-      # default: 25gb
-      disk: 10gb
-
-      # Minimum acceptable supplier gpu pci-e lanes
-      # default: 8x
-      pcie: 16x
-
 ## Running jobs
 
-Once a configuration file is in place, the user can dispatch jobs with the following command:
+Once a [configuration](/docs/users/config) file is in place, the user can dispatch jobs with the following command:
 
     emrys run
 
@@ -57,14 +17,15 @@ When convenient, flags will override configuration settings.
 
 ## Running jupyter notebooks
 
-Once a configuration file is in place, the user can access a remote jupyter kernal with the following command:
+Once a configuration file is in place, the user can access a remote jupyter kernel with the following command:
 
+    # launch with a blank notebook
     emrys notebook
 
-When convenient, flags will override configuration settings.
+    # load a specific .ipynb notebook
+    emrys notebook --main notebook.ipynb
 
-    # load a different .ipynb notebook
-    emrys run --main test/numpy/other-notebook.ipynb
+Once the job is successfully auctioned and the kernel running, a jupyter token will be logged to the console for pasting into your browser.
 
 ## How does it work?
 
@@ -77,4 +38,6 @@ Emrys run does ~4 things:
 
 ## Limitations
 
-Please note there is currently a maximum data set size of 10gb per project. Please email [support](mailto:support@emrys.io) to request a larger limit.
+Please note when syncing your data set locally to emrys there is currently a maximum data set size of 10gb per project.
+This limit is easily circumvented by downloading your data directly from your python script or notebook (but remember to request sufficient disk 
+space in your config!)

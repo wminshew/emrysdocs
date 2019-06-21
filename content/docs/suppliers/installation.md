@@ -1,10 +1,6 @@
-# Installing emrys
+# Installing emrys for suppliers
 
 ## Requirements
-**User**<br>
-User subcommands have been tested with ubuntu 16.04 and macOS. There are no additional software dependencies for users, simply install the [CLI](/docs/installation#downloading-installing-emrys).
-
-**Supplier**<br>
 Supplier / miner subcommands have only been tested with ubuntu 16.04.
 
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
@@ -101,8 +97,8 @@ but don't forget to add it to $PATH!)
 
     $ emrys --help
 
-## Sending & receiving payments
-Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account](https://www.emrys.io/account) page to securely provide card and/or bank account details required for using & supplying the network respectively.
+## Receiving payments
+Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account](https://www.emrys.io/account) page to securely provide bank account details required for payouts from supplying the network.
 
 ## Updating emrys
 
