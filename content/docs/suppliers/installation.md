@@ -4,6 +4,7 @@
 Supplier / miner subcommands have only been tested with ubuntu 16.04.
 
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+    
     # Uninstall old versions
     $ sudo apt remove docker docker-engine docker.io
 
