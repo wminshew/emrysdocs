@@ -12,17 +12,17 @@ Once a [configuration](/docs/users/config) file is in place, the user can dispat
 
 When convenient, flags will override configuration settings.
 
-    # use a different python script for execution
+    ### use a different python script for execution
     emrys run --main test/numpy/other-main.py
 
 ## Running jupyter notebooks
 
 Once a configuration file is in place, the user can access a remote jupyter kernel with the following command:
 
-    # launch with a blank notebook
+    ### launch with a blank notebook
     emrys notebook
 
-    # load a specific .ipynb notebook
+    ### load a specific .ipynb notebook
     emrys notebook --main notebook.ipynb
 
 Once the job is successfully auctioned and the kernel running, a jupyter token will be logged to the console for pasting into your browser.

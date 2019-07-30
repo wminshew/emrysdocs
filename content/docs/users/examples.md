@@ -10,7 +10,7 @@ The below examples use the config file
 	$ tar -xzf basic-example.tar.gz
 	$ cd basic-example
 
-	# if not already logged in
+	### if not already logged in
 	$ emrys login
 	Email: example@domain.com
 	Password:
@@ -44,14 +44,14 @@ The advanced example is not any more complex to complete, but includes a data se
 	$ tar -xzf advanced-example.tar.gz
 	$ cd advanced-example
 	
-	# if not already logged in
+	### if not already logged in
 	$ emrys login
 	Email: example@domain.com
 	Password:
 
 	$ emrys run
-	# you can also download the data set remotely (vs syncing from local) by running:
-	# emrys run --main main-gpu-dl.py --data ""
+	### you can also download the data set remotely (vs syncing from local) by running:
+	### emrys run --main main-gpu-dl.py --data ""
 	2018/12/06 17:48:42 Sending job requirements...
 	2018/12/06 17:48:42 Beginning job ce87fc77-65a8-47bb-a153-91b300eadc2f...
 	2018/12/06 17:48:42 Data: syncing...
