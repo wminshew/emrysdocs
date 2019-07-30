@@ -65,10 +65,10 @@ Add [user re-mapping for security](https://docs.docker.com/engine/security/usern
 [GPU cooling](https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Set_fan_speed_at_login)
 
     ### allows user to adjust gpu fan speed
-    $ sudo nvidia-xconfig -a --enable-all-gpus
-    $ sudo nvidia-xconfig -a --cool-bits=24
+    $ sudo nvidia-xconfig --enable-all-gpus
+    $ sudo nvidia-xconfig --cool-bits=4
 
-    ### must reboot
+    ### reboot
 
     ### test
     $ nvidia-settings -a GPUFanControlState=1
