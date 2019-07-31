@@ -3,16 +3,36 @@
 ## Requirements
 Supplier / miner subcommands have only been tested with ubuntu 16.04.
 
-[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-    
-    ### Uninstall old versions
-    $ sudo apt remove docker docker-engine docker.io
+[Nvidia drivers](https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa), 418 or newer
 
-    $ sudo apt update
-    $ sudo apt install \
+
+    ### uninstall any existing old drivers
+    $ sudo apt-get purge nvidia*
+
+    ### install nvidia drivers 418
+    $ sudo add-apt-repository ppa:graphics-drivers
+    $ sudo apt-get update
+    $ sudo apt-get install nvidia-418
+
+    ### reboot
+    $ sudo reboot
+
+    ### verify the installation
+    $ nvidia-smi
+
+
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/), v19.03 or newer
+    
+    ### uninstall any existing old versions (must run at least docker 19.03)
+    $ sudo apt-get remove docker docker-engine docker.io containerd runc
+
+    ### install docker
+    $ sudo apt-get update
+    $ sudo apt-get install \
        apt-transport-https \
        ca-certificates \
        curl \
+       gnupg-agent \
        software-properties-common
         
     $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
@@ -23,60 +43,52 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
        $(lsb_release -cs) \
        stable"
 
-    $ sudo apt update
-    $ sudo apt install -y docker-ce
+    $ sudo apt-get update
+    $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+    ### verify the installation
+    $ sudo docker run hello-world
+
+    ### install nvidia-container-toolkit to add gpu support
+    $ sudo apt-get install -y nvidia-container-toolkit
+
+    ### verify the installation
+    $ sudo docker run --gpus all nvidia/cuda nvidia-smi
+
 
 <br>
-[Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker)
-
-    ### Add the package repositories
-    $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-       sudo apt-key add -
-    $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-    $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-       sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-    $ sudo apt update
-
-    ### Install nvidia-docker2 and reload the Docker daemon configuration
-    $ sudo apt install -y nvidia-docker2
-    $ sudo systemctl restart docker.service
-
-<br>
-Add [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event the process were to escalate itself to a privileged user within the container, the docker user re-mapping means the process is still unprivileged on your host machine.
+Add [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event a process were to escalate itself to privileged within the container and then escape to host, docker user re-mapping means the process would still be unprivileged on host.
 
     ### manually add "userns-remap": "default" to /etc/docker/daemon.json
     ### After, it should look like: 
     $ sudo cat /etc/docker/daemon.json
     {
       "userns-remap": "default",
-      "runtimes": {
-        "nvidia": {
-          "path": "nvidia-container-runtime",
-          "runtimeArgs": []
-        }
-      }
     }
 
-    ### restart dockerd for the changes to take effect
+    ### restart dockerd for the change to take effect
     $ sudo systemctl restart docker.service
+
+    ### verify the change
+    $ docker info | grep userns
 
 
 <br>
-[GPU cooling](https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Set_fan_speed_at_login)
+Add [GPU cooling](https://wiki.archlinux.org/index.php/NVIDIA/Tips_and_tricks#Set_fan_speed_at_login). GPUs heat up quickly when running at high utilization. Settings your GPUs fan control state to manual
+allows emrys to ramp up your fan appropriately during & between jobs. Keeping your cards
+relatively cool reduces wear and tear.
 
     ### allows user to adjust gpu fan speed
     $ sudo nvidia-xconfig --enable-all-gpus
     $ sudo nvidia-xconfig --cool-bits=4
 
     ### reboot
+    $ sudo reboot
 
     ### test
     $ nvidia-settings -a GPUFanControlState=1
     $ nvidia-settings -a GPUTargetFanSpeed=25
 
-GPUs heat up quickly when running at high utilization. Settings your GPUs fan control state to manual
-allows emrys to ramp up your fan appropriately during & between jobs. Keeping your cards
-relatively cool reduces wear and tear.
 
 ## Downloading & installing emrys
 
