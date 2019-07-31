@@ -9,9 +9,6 @@ Example .emrys.yaml for executing emrys run:
       ### name of project
       project: "numpy-test"
 
-      ### path to pip requirements.txt
-      requirements: "test/numpy/requirements.txt"
-
       ### path to main python script for execution
       main: "test/numpy/main.py"
 
@@ -19,21 +16,68 @@ Example .emrys.yaml for executing emrys run:
       output: "test/numpy/output"
 
       ## optional
+      ### path to conda environment.yml
+      conda-env: "test/numpy/environment.yml"
+
+      ### path to pip requirements.txt
+      pip-reqs: "test/numpy/requirements.txt"
+
       ### path to data directory
       data: "test/numpy/data"
 
-      ### Minimum acceptable gpu, ranked here: https://github.com/wminshew/emrys/blob/master/pkg/job/ValidGPU.go
+      ### minimum acceptable gpu
+      ### rankings: https://github.com/wminshew/emrys/blob/master/pkg/job/ValidGPU.go
       ### default: k80
-      gpu: gtx 1080 ti
+      gpu: gtx 1080
 
-      ### Minimum acceptable amount of supplier RAM
+      ### minimum acceptable amount of supplier RAM
       ### default: 8gb
       ram: 4gb
 
-      ### Minimum acceptable amount of supplier disk space
+      ### minimum acceptable amount of supplier disk space
       ### default: 25gb
       disk: 10gb
 
-      ### Minimum acceptable supplier gpu pci-e lanes
+      ### minimum acceptable supplier gpu pci-e lanes
       ### default: 8x
-      pcie: 16x
+      pcie: 4x
+
+Example .emrys.yaml for executing emrys notebook:
+
+    user:
+      ## required
+      ### name of project
+      project: "numpy-test"
+
+      ### path to output folder
+      output: "test/numpy/output"
+
+      ## optional
+      ### path to jupyter notebook
+      main: "test/numpy/main.ipynb"
+
+      ### path to conda environment.yml
+      conda-env: "test/numpy/environment.yml"
+
+      ### path to pip requirements.txt
+      pip-reqs: "test/numpy/requirements.txt"
+
+      ### path to data directory
+      data: "test/numpy/data"
+
+      ### minimum acceptable gpu
+      ### rankings: https://github.com/wminshew/emrys/blob/master/pkg/job/ValidGPU.go
+      ### default: k80
+      gpu: gtx 1080
+
+      ### minimum acceptable amount of supplier RAM
+      ### default: 8gb
+      ram: 4gb
+
+      ### minimum acceptable amount of supplier disk space
+      ### default: 25gb
+      disk: 10gb
+
+      ### minimum acceptable supplier gpu pci-e lanes
+      ### default: 8x
+      pcie: 4x
