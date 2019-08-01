@@ -42,7 +42,8 @@ card to your [account](https://www.emrys.io/account) (powered by [Stripe](https:
         http://eba6b5ef02a0:8888/?token=f6c7544d15704ab3ac5e148340aa3fef22ee1892cd7348ac
      or http://127.0.0.1:8888/?token=f6c7544d15704ab3ac5e148340aa3fef22ee1892cd7348ac
 
-    ### press ctrl-c to end
+    ### click on the 127.0.0.1 link to open in your browser (or copy/paste)
+    ### when done, press ctrl-c to end
 
     2019/07/31 00:55:53 Cancellation request received: please wait for notebook to successfully cancel
     2019/07/31 00:55:53 Warning: failure to successfully cancel notebook may result in undesirable charges
@@ -133,7 +134,8 @@ Notebook kindly borrowed from [jovian](https://medium.com/dsnet/training-deep-ne
     Or copy and paste one of these URLs:
         http://(be4fe6c8740c or 127.0.0.1):8888/?token=39e27295259f52a38a2934f7f4c56528d1b438b9e3826cab
 
-    ### press ctrl-c to end
+    ### open up http://127.0.0.1:8888?token=[token] in your browser to access the notebook
+    ### when done, press ctrl-c to end
 
 ## Advanced run
 
