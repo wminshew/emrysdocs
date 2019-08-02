@@ -66,14 +66,14 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
 Add [user re-mapping for security](https://docs.docker.com/engine/security/userns-remap/). All containers are executed as unprivileged users with all linux capabilities dropped and the [no-new-privileges](https://www.projectatomic.io/blog/2016/03/no-new-privs-docker/) security flag enabled. In the unlikely event a process were to escalate itself to privileged within the container and then escape to host, docker user re-mapping means the process would still be unprivileged on host.
 
     ### manually add "userns-remap": "default" to /etc/docker/daemon.json
-    ### After, it should look like: 
+    ### After, it should look like:
     $ sudo cat /etc/docker/daemon.json
     {
       "userns-remap": "default",
     }
 
     ### restart dockerd for the change to take effect
-    $ sudo systemctl restart docker.service
+    $ sudo systemctl restart docker
 
     ### verify the change
     $ docker info | grep userns
