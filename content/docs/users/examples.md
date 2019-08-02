@@ -6,7 +6,7 @@ card to your [account](https://www.emrys.io/account) (powered by [Stripe](https:
 
 ## Basic notebook
 
-    $ curl -O https://storage.googleapis.com/emrys-public/tutorials/basic-notebook-example.tar.gz | tar -xzf -
+    $ curl https://storage.googleapis.com/emrys-public/tutorials/basic-notebook-example.tar.gz | tar -xzf -
     $ cd basic-notebook
 
     ### if not already logged in
