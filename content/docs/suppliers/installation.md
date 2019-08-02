@@ -9,10 +9,10 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
     ### uninstall any existing old drivers
     $ sudo apt-get purge nvidia*
 
-    ### install nvidia drivers 418
+    ### install nvidia drivers 418 (or higher)
     $ sudo add-apt-repository ppa:graphics-drivers
     $ sudo apt-get update
-    $ sudo apt-get install nvidia-418
+    $ sudo apt-get install -y nvidia-418
 
     ### reboot
     $ sudo reboot
@@ -28,7 +28,7 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
 
     ### install docker
     $ sudo apt-get update
-    $ sudo apt-get install \
+    $ sudo apt-get install -y \
        apt-transport-https \
        ca-certificates \
        curl \
@@ -37,6 +37,7 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
         
     $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
        sudo apt-key add -
+    ### verify you have the key with fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
     $ sudo apt-key fingerprint 0EBFCD88
     $ sudo add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -44,13 +45,18 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
        stable"
 
     $ sudo apt-get update
-    $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+    $ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
     ### verify the installation
     $ sudo docker run hello-world
 
     ### install nvidia-container-toolkit to add gpu support
+    $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+    $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    $ sudo apt-get update
     $ sudo apt-get install -y nvidia-container-toolkit
+    $ sudo systemctl restart docker
 
     ### verify the installation
     $ sudo docker run --gpus all nvidia/cuda nvidia-smi
