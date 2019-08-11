@@ -12,7 +12,8 @@ Supplier / miner subcommands have only been tested with ubuntu 16.04.
     ### install nvidia drivers 418 (or higher)
     $ sudo add-apt-repository ppa:graphics-drivers
     $ sudo apt-get update
-    $ sudo apt-get install -y nvidia-drivers-418
+    $ sudo apt-get install -y nvidia-graphics-drivers-418
+    ### depending on your OS, might be nvidia-driver-418 or simply nvidia-418
     ### can use nvidia-headless-418 nvidia-utils-418 if running headless, but if so make sure your GPUs are cooled properly!
 
     ### reboot
