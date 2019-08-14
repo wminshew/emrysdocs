@@ -39,8 +39,7 @@ card to your [account](https://www.emrys.io/account) (powered by [Stripe](https:
     To access the notebook, open this file in a browser:
         file:///home/user/.local/share/jupyter/runtime/nbserver-6-open.html
     Or copy and paste one of these URLs:
-        http://eba6b5ef02a0:8888/?token=f6c7544d15704ab3ac5e148340aa3fef22ee1892cd7348ac
-     or http://127.0.0.1:8888/?token=f6c7544d15704ab3ac5e148340aa3fef22ee1892cd7348ac
+        http://127.0.0.1:8888/?token=f6c7544d15704ab3ac5e148340aa3fef22ee1892cd7348ac
 
     ### click on the 127.0.0.1 link to open in your browser (or copy/paste)
     ### when done, press ctrl-c to end
@@ -132,9 +131,9 @@ Notebook kindly borrowed from [jovian](https://medium.com/dsnet/training-deep-ne
     To access the notebook, open this file in a browser:
         file:///home/user/.local/share/jupyter/runtime/nbserver-6-open.html
     Or copy and paste one of these URLs:
-        http://(be4fe6c8740c or 127.0.0.1):8888/?token=39e27295259f52a38a2934f7f4c56528d1b438b9e3826cab
+        http://127.0.0.1:8888/?token=39e27295259f52a38a2934f7f4c56528d1b438b9e3826cab
 
-    ### open up http://127.0.0.1:8888?token=[token] in your browser to access the notebook
+    ### click on the 127.0.0.1 link to open in your browser (or copy/paste)
     ### when done, press ctrl-c to end
 
 ## Advanced run
