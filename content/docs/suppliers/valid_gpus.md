@@ -16,3 +16,23 @@ If you find an error or think a card should be added, please [email](mailto:supp
     gtx1080
     gtx1070ti
     gtx1070
+
+## GPU rankings
+
+Below is the ordinal ranking for GPUs on emrys. Users may specify a minimum GPU requirement per job.
+
+    ### highest rank
+    teslaV100
+    nvidiaTitanV
+    teslaP100
+    rtx2080ti
+    nvidiaTitanXp
+    nvidiaTitanX
+    rtx2080
+    gtx1080ti
+    rtx2070
+    gtx1080
+    gtx1070ti
+    gtx1070
+    teslaK80
+    ### lowest rank
