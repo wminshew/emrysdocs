@@ -1,7 +1,7 @@
 # Installing emrys for suppliers
 
 ## Requirements
-Supplier / miner subcommands have only been tested with ubuntu 16.04.
+Supplier / miner subcommands have only been tested with ubuntu 16.04, 18.04.
 
 [Nvidia drivers](https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa), 418 or newer
 
@@ -77,7 +77,7 @@ Add [user re-mapping for security](https://docs.docker.com/engine/security/usern
     ### restart dockerd for the change to take effect
     $ sudo systemctl restart docker
 
-    ### verify the change
+    ### verify the change; depending on your docker privileges, may require sudo
     $ docker info | grep userns
 
 
@@ -126,3 +126,7 @@ Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account]
     ### sudo may be required, depending on the permissions & ownership 
     ### of where you installed the executable
     $ emrys update
+
+## Configuring emrys
+
+Before executing the miner subcommand, please make sure to [configure emrys](/docs/suppliers/config).
