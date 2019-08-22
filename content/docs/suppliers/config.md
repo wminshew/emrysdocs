@@ -29,3 +29,7 @@ Example .emrys.yaml for executing emrys mine:
       ### NOTE: if included, MUST use the '$DEVICE' flag, as shown below
       mining-command: [command] --cuda_devices $DEVICE --server [server]
         --user [user] --port [port]
+
+## Using emrys
+
+Once emrys is configured, learn how to [connect to the network](/docs/suppliers/connect).
