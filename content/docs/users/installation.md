@@ -31,3 +31,7 @@ Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account]
     ### sudo may be required, depending on the permissions & ownership 
     ### of where you installed the executable
     $ emrys update
+
+## Configuring emrys
+
+Before executing the run or notebooks subcommands, please make sure to [configure emrys](/docs/users/config).

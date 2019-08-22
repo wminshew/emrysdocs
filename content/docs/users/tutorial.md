@@ -27,6 +27,10 @@ Once a configuration file is in place, the user can access a remote jupyter kern
 
 Once the job is successfully auctioned and the kernel running, a jupyter token will be logged to the console for pasting into your browser.
 
+## Where can I find real examples of running jobs & notebook?
+
+[Here](/docs/users/examples)!
+
 ## How does it work?
 
 Emrys run does ~4 things:

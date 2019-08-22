@@ -81,3 +81,7 @@ Example .emrys.yaml for executing emrys notebook:
       ### minimum acceptable supplier gpu pci-e lanes
       ### default: 8x
       pcie: 4x
+
+## Using emrys
+
+Once emrys is configured, check out the tutorial to learn how to [run remote jobs & notebooks](/docs/users/tutorial).
