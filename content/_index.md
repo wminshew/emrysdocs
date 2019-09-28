@@ -8,17 +8,14 @@ type: docs
 Welcome to emrys!
 
 ## What is emrys?
-Emrys is a peer to peer marketplace for GPU compute.
-Today, that means companies and individuals with idle (or underutilized) GPUs can rent them out on our network to other 
-companies and individuals looking to utilize said GPUs.
+Emrys provides the cheapest cloud GPU rentals.
+
 
 ## Why would I use emrys?
-As a user, you either use cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
+You either rent cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
 
-As a supplier, you either have presently-idle GPUs or are looking to earn (significantly) more money than you can from mining altcoins.
 
 ## How do I use emrys?
-Well, that depends whether you wish to rent GPUs *from* the network, or contribute your GPUs *to* the network.
 You can find more details about each use case by following links on the left.
 
 While exploring, you'll notice every page has a feedback link at the bottom.
