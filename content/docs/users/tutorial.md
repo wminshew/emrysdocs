@@ -37,7 +37,7 @@ Emrys run does ~4 things:
 
 1. uploads a python script, conda environment, and pip requirements to the server with which a docker image is built
 2. syncs the data set, if it exists locally, to the server
-3. auctions the job's execution to supplier's meeting the user's hardware requirements
+3. auctions the job's execution to suppliers meeting the user's hardware requirements
 4. streams output logs back to the user & downloads anything the python script saved in ./output/
 
 ## Limitations
