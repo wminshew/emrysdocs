@@ -30,15 +30,15 @@ Example .emrys.yaml for executing emrys run:
       ### default: k80
       gpu: gtx 1080
 
-      ### minimum acceptable amount of supplier RAM
+      ### minimum acceptable amount of RAM
       ### default: 8gb
       ram: 4gb
 
-      ### minimum acceptable amount of supplier disk space
+      ### minimum acceptable amount of disk space
       ### default: 25gb
       disk: 10gb
 
-      ### minimum acceptable supplier gpu pci-e lanes
+      ### minimum acceptable gpu pci-e lanes
       ### default: 8x
       pcie: 4x
 
@@ -70,15 +70,15 @@ Example .emrys.yaml for executing emrys notebook:
       ### default: k80
       gpu: gtx 1080
 
-      ### minimum acceptable amount of supplier RAM
+      ### minimum acceptable amount of RAM
       ### default: 8gb
       ram: 4gb
 
-      ### minimum acceptable amount of supplier disk space
+      ### minimum acceptable amount of disk space
       ### default: 25gb
       disk: 10gb
 
-      ### minimum acceptable supplier gpu pci-e lanes
+      ### minimum acceptable gpu pci-e lanes
       ### default: 8x
       pcie: 4x
 
