@@ -106,13 +106,15 @@ but don't forget to add it to $PATH!)
 
 ### Linux
 
+    ### may need sudo with the tar command, depending on the permissions of /usr/local/bin
     $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}_linux.tar.gz | \
-       sudo tar -C /usr/local/bin -xzf -
+       tar -C /usr/local/bin -xzf -
 
 ### MacOS
 
+    ### may need sudo with the tar command, depending on the permissions of /usr/local/bin
     $ curl https://storage.googleapis.com/emrys-public/clients/emrys_{{< version >}}_darwin.tar.gz | \
-       sudo tar -C /usr/local/bin -xzf -
+       tar -C /usr/local/bin -xzf -
 
 ### Test the installation
 
@@ -124,7 +126,7 @@ Emrys payments are powered by [Stripe](https://stripe.com). Visit your [account]
 ## Updating emrys
 
     ### sudo may be required, depending on the permissions & ownership 
-    ### of where you installed the executable
+    ### of where the emrys binary is located
     $ emrys update
 
 ## Configuring emrys
