@@ -8,7 +8,7 @@ type: docs
 Welcome to emrys!
 
 ## What is emrys?
-Emrys provides the cheapest cloud GPU rentals.
+Emrys is a cloud GPU marketplace..
 
 
 ## Why would I use emrys?
