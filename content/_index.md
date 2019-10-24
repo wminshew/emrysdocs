@@ -7,7 +7,7 @@ type: docs
 
 Welcome to emrys! Here we'll teach you how to get started. 
 
-# Installing emrys
+# Install emrys
 
 We support Linux and MacOS. 
 
@@ -25,7 +25,7 @@ We support Linux and MacOS.
     
     ### may need sudo, depending on permissions
 
-# Using emrys
+# Use emrys
 
 ## Login
 
@@ -60,7 +60,7 @@ Once a configuration file is in place, the user can access a remote jupyter kern
 
 Once the job is successfully running, a jupyter token will be logged to the console for pasting into your browser.
 
-### Where can I find real examples of running notebooks?
+## Where can I find real examples of running notebooks?
 
 [Here](/docs/users/examples)!
 
@@ -81,13 +81,13 @@ Please note when syncing your data set locally to emrys there is currently a max
 This limit is easily circumvented by downloading your data directly from your python script or notebook (but remember to request sufficient disk 
 space in your config!)
 
-## Updating emrys
+## Update emrys
 
     ### sudo may be required, depending on the permissions & ownership 
     ### of where the emrys binary is located
     $ emrys update
     
-## Configuring emrys
+## Configure emrys
 
 For convenience, users should store their settings in a configuation file. Emrys will look for .emrys.yaml in the prioritized order: current directory, $HOME/.config/emrys, and $HOME/. Toml and json formats are also accepted.
 
