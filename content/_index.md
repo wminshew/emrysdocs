@@ -58,8 +58,6 @@ Once a configuration file is in place, the user can access a remote jupyter kern
     ### load a specific .ipynb notebook
     $ emrys notebook --main notebook.ipynb
 
-Once the job is successfully running, a jupyter token will be logged to the console for pasting into your browser.
-
 ## Where can I find real examples of running notebooks?
 
 [Here](/docs/users/examples)!
@@ -68,24 +66,24 @@ Once the job is successfully running, a jupyter token will be logged to the cons
 
 ## How does emrys work?
 
-Emrys run does ~4 things:
+Emrys does 4 things:
 
-1. uploads a python script, conda environment, and pip requirements to the server with which a docker image is built
-2. syncs the data set, if it exists locally, to the server
-3. auctions the job's execution to suppliers meeting the user's hardware requirements
-4. streams output logs back to the user & downloads anything the python script saved in ./output/
+1. syncs the data set, if one exists locally
+2. builds a docker image with your python script (or notebook), conda environment, and pip requirements
+3. auctions the job to suppliers meeting your hardware requirements
+4. streams output back to the user
 
 ## Limitations
 
-Please note when syncing your data set locally to emrys there is currently a maximum data set size of 10gb per project.
-This limit is easily circumvented by downloading your data directly from your python script or notebook (but remember to request sufficient disk 
-space in your config!)
+Please note when syncing a local data set to emrys there is a maximum size of 10gb per project.
+This may be circumvented by downloading your data directly from your python script or notebook (remember to specify sufficient disk 
+space!)
 
 ## Update emrys
 
-    ### sudo may be required, depending on the permissions & ownership 
-    ### of where the emrys binary is located
     $ emrys update
+
+    ### may need sudo, depending on permissions
     
 ## Configure emrys
 
@@ -95,20 +93,24 @@ Example .emrys.yaml for executing emrys notebook:
 
     user:
       ## required
+
       ### name of project
-      project: "numpy-test"
+      project: "test"
 
       ### path to output folder
-      output: "test/output"
+      output: "output"
+
+
+      ## optional
 
       ### path to conda environment.yml
-      conda-env: "test/environment.yml"
+      conda-env: "environment.yml"
 
       ### path to pip requirements.txt
-      pip-reqs: "test/requirements.txt"
+      pip-reqs: "requirements.txt"
 
       ### path to data directory
-      data: "test/data"
+      data: "data"
 
       ### minimum acceptable amount of RAM
       ### default: 8gb
@@ -117,6 +119,5 @@ Example .emrys.yaml for executing emrys notebook:
       ### minimum acceptable amount of disk space
       ### default: 25gb
       disk: 10gb
-
 
 
